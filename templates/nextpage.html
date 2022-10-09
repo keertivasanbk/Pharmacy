@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  {%block head%}
+  {%endblock%}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Pharmacy</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="{%url 'admin_page'%}">Create Items</a></li>
+      <li><a href="{%url 'admin_list'%}">View Items</a></li>
+      <li><a href="{%url 'paitents_create'%}">Create Patients</a></li>
+      <li><a href="{%url 'paitents_list'%}">View Patients</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span>{{user.username}}</a></li>
+      <li><a href="{%url 'home' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
+  </div>
+</nav>
+  
+<div class="container">
+    {% if user.is_authenticated %}
+    <h2 style="text-align: center;">Welcome <span style="color:red">{{user.username}}</span> to the Pharmacy</h2><br>
+    {%endif%}
+    {%block content%}
+{%endblock%}
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+{%extends 'nextpage.html'%}
+{%block head%}
+{%load static%}
+<link rel="stylesheet" href="{%static 'list.css'%}">
+{%endblock%}
+{%block content%}
+<div class="container">
+<table id="customers">
+    <tr>
+      <th>Patients_Name</th>
+      <th>Age</th>
+      <th>Place</th>
+      <th>Phonenumber</th>
+      <th>Weight</th>
+      <th>Medicine_Purchased</th>
+    </tr>
+{%for i in list_details%}
+    <tr>
+      <td>{{i.patient_name}}</td>
+      <td>{{i.age}}</td>
+      <td>{{i.place}}</td>
+      <td>{{i.phonenumber}}</td>
+      <td>{{i.weight}}</td>
+      <td>{{i.medicine_puruchased}}</td>
+    </tr>    
+{%endfor%}
+</table>
+</div>
+{%endblock%}

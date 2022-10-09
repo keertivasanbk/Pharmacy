@@ -1,0 +1,33 @@
+{%extends 'nextpage.html'%}
+{%block head%}
+{%load static%}
+<link rel="stylesheet" href="{%static 'list.css'%}">
+{%endblock%}
+{%block content%}
+<div class="container">
+<table id="customers">
+    <tr>
+      <th>Reference_No</th>
+      <th>Company_Name</th>
+      <th>Medicine_Name</th>
+      <th>Issue_Date</th>
+      <th>Expiry_Date</th>
+      <th>Amount</th>
+      <th>Uses</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+{%for i in list_details%}
+    <tr>
+      <td>{{i.reference_no}}</td>
+      <td>{{i.company_name}}</td>
+      <td>{{i.medicine_name}}</td>
+      <td>{{i.issue_date}}</td>
+      <td>{{i.Expiry_date}}</td>
+      <td>{{i.amount}}</td>
+      <td>{{i.uses}}</td>
+      <td><a href="{% url 'admin_update' i.id %}"><span class="glyphicon glyphicon-cog">Update</span></a></td>
+      <td><a href="{% url 'admin_delete' i.id%}"><span class="glyphicon glyphicon-trash">Delete</span></a></td>
+    </tr>
+{%endfor%}
+{%endblock%}
