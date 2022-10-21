@@ -79,12 +79,13 @@ WSGI_APPLICATION = "pharmacy.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "pharmacy",
-        "USER":"root",
-        "PASSWORD":"",
-        "HOST":"127.0.0.1",
-        "PORT":'3306'
+             'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT']
+       
     }
 }
 
