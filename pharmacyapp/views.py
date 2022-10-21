@@ -82,6 +82,7 @@ class paitentslist(ListView):  # PAITENTS LIST
     context_object_name = "list_details"
 
 
+
 def logout(request):
     auth.logout(request)  # logout is predefined
     return redirect('home')
